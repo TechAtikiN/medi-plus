@@ -1,15 +1,18 @@
 import Head from "next/head"
-import { useState } from "react"
+import useState from 'react-usestateref'
 import { DashLayout } from "../layouts"
 
 type Message = {
   key: number,
-  text: any
+  text: any,
+  msgByBot: boolean
 }
 const SymptomChecker = () => {
 
   const [input, setInput] = useState('')
-  const [message, setMessage] = useState<Message>()
+  const [messages, setMessages, messagesRef] = useState<Message[]>([])
+  const [loading, setLoading] = useState(false)
+  const [messageByBot, setMessageByBot] = useState(false)
 
   const handleKeyDown = (e: any) => {
     if (e.keyCode === 13) {
@@ -19,6 +22,15 @@ const SymptomChecker = () => {
   }
 
   const fetchData = async () => {
+
+    setLoading(true)
+    const myMessage = {
+      text: input,
+      key: new Date().getTime(),
+      msgByBot: false
+    }
+    setMessages(messages => [...messages, myMessage])
+    setMessages([...messagesRef.current, myMessage])
 
     const response = await fetch('/api/generate-answer', {
       method: 'POST',
@@ -30,18 +42,22 @@ const SymptomChecker = () => {
       })
     })
     const data = await response.json()
+    setLoading(false)
 
     if (data.text) {
       const botMessage = {
         text: data.text,
-        key: Date.now()
+        key: Date.now(),
+        msgByBot: true
       }
-      setMessage(botMessage)
+      setMessages([...messagesRef.current, botMessage])
+      setMessageByBot(true)
     } else {
       console.log('Error occured')
     }
   }
 
+  console.log(messages)
   return (
     <div className=''>
       <Head>
@@ -56,15 +72,40 @@ const SymptomChecker = () => {
           <div>
             <h2 className='text-xl my-3'>Enter your symptoms</h2>
 
-            <div>
-              <input
-                onKeyDown={(e) => handleKeyDown(e)}
-                onChange={(e) => setInput(e.target.value)}
-                className='px-4 py-3 w-1/2 focus:outline-none rounded-lg border border-purple-300' type="text" />
-            </div>
+            <div className='bg-purple-50 mx-auto mt-4 flex flex-col h-[30rem] w-1/2 overflow-y-scroll'>
+              <p className='bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white'>
+                Welcome to our site! If you need any help or check symptoms, we are online and ready to help you!
+              </p>
 
-            <div className='bg-purple-50 mt-4 h-[16rem]'>
-              <p className='p-4 text-lg font-semibold text-purple-900'>{message?.text.text}</p>
+              <div className='flex-1 space-y-5'>
+                {messages?.map(msg => (
+                  msg.msgByBot ? (
+                    <p
+                      key={msg.key}
+                      className={`bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                    >{msg.text.text}
+                    </p>
+                  ) : (
+                    <p
+                      key={msg.key}
+                      className={`bg-purple-800 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                    >{msg.text}
+                    </p>
+                  )
+                  // <p
+                  //   key={msg.key}
+                  //   className={`bg-purple-800 p-4 ${msg.msgByBot ? 'rounded-r-3xl rounded-b-3xl' : 'rounded-l-3xl rounded-b-3xl'} font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                  // >{msg.text.text}
+                  // </p>
+                ))}
+              </div>
+
+              <div className='fixed bottom-36 w-1/2'>
+                <input
+                  onKeyDown={(e) => handleKeyDown(e)}
+                  onChange={(e) => setInput(e.target.value)}
+                  className='px-4 w-full py-3 focus:outline-none rounded-lg border border-purple-800' type="text" />
+              </div>
 
             </div>
           </div>
