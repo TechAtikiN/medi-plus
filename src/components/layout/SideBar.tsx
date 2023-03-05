@@ -28,11 +28,16 @@ const navLinks: SidebarLink[] = [
     path: 'profile',
     icon: 'xyz'
   },
+  {
+    title: 'Symptom Checker',
+    path: 'symptom',
+    icon: 'xyz'
+  },
 
 ]
 const SideBar = () => {
   const router = useRouter()
-  const [selectedItem, setSelectedItem] = useState<string>('/' + router.pathname.split('/')[1])
+  const [selectedItem, setSelectedItem] = useState<string>('/' + router.pathname.split('/')[0])
 
   const handleLinkNavigation = (link: SidebarLink) => {
     setSelectedItem(link.path)
@@ -48,7 +53,7 @@ const SideBar = () => {
           <div onClick={() => handleLinkNavigation(link)}
             className=
             {`flex space-x-3 px-3 py-2 hover:cursor-pointer 
-            ${link.path === selectedItem ? 'bg-purple-800 text-white' : 'bg-white'}
+            ${link.path === selectedItem ? 'bg-purple-800' : 'bg-white'}
              hover:bg-purple-800 hover:text-white bg-white m-4 rounded-lg`}
           >
             <Bars3Icon className='h-6 w-6' />
