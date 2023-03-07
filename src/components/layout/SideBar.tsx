@@ -46,15 +46,15 @@ const SideBar = () => {
 
   return (
     <nav>
-      <h1 className='text-3xl text-purple-800 font-bold mx-10 my-5 text-center'>MediPlus</h1>
+      <h1 className='text-3xl text-indigo-800 font-bold mx-10 my-5 text-center'>MediPlus</h1>
 
       <div>
         {navLinks.map(link => (
           <div onClick={() => handleLinkNavigation(link)}
             className=
             {`flex space-x-3 px-3 py-2 hover:cursor-pointer 
-            ${link.path === selectedItem ? 'bg-purple-800' : 'bg-white'}
-             hover:bg-purple-800 hover:text-white bg-white m-4 rounded-lg`}
+            ${router.pathname === `/${link.path}` ? 'bg-indigo-800' : 'bg-white'}
+             hover:bg-indigo-800 hover:text-white bg-white m-4 rounded-lg`}
           >
             <Bars3Icon className='h-6 w-6' />
             <button className='text-xl font-semibold'>{link.title}</button>

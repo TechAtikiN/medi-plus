@@ -5,3 +5,13 @@
 ::-webkit-scrollbar{
   width: 0px;
 }
+
+@layer components{
+
+  .form-input{
+    @apply px-3 py-2 font-semibold text-indigo-800 focus:outline-none border-2 shadow-lg w-full border-indigo-600 rounded-lg
+  }
+  .form-label{
+    @apply font-semibold text-indigo-800 text-lg my-1
+  }
+}

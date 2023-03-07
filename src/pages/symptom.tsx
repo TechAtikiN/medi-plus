@@ -16,7 +16,6 @@ const SymptomChecker = () => {
 
   const handleKeyDown = (e: any) => {
     if (e.keyCode === 13) {
-      alert('hello')
       fetchData()
     }
   }
@@ -57,7 +56,6 @@ const SymptomChecker = () => {
     }
   }
 
-  console.log(messages)
   return (
     <div className=''>
       <Head>
@@ -67,13 +65,13 @@ const SymptomChecker = () => {
 
       <DashLayout>
         <div className='m-6'>
-          <h2 className='text-3xl font-bold text-purple-800'>Symptom Checker</h2>
+          <h2 className='text-3xl font-bold text-indigo-800'>Symptom Checker</h2>
 
           <div>
             <h2 className='text-xl my-3'>Enter your symptoms</h2>
 
-            <div className='bg-purple-50 mx-auto mt-4 flex flex-col h-[30rem] w-1/2 overflow-y-scroll'>
-              <p className='bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white'>
+            <div className='bg-indigo-50 mx-auto mt-4 flex flex-col h-[30rem] w-1/2 overflow-y-scroll'>
+              <p className='bg-indigo-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white'>
                 Welcome to our site! If you need any help or check symptoms, we are online and ready to help you!
               </p>
 
@@ -82,21 +80,16 @@ const SymptomChecker = () => {
                   msg.msgByBot ? (
                     <p
                       key={msg.key}
-                      className={`bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                      className={`bg-indigo-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
                     >{msg.text.text}
                     </p>
                   ) : (
                     <p
                       key={msg.key}
-                      className={`bg-purple-800 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                      className={`bg-indigo-800 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
                     >{msg.text}
                     </p>
                   )
-                  // <p
-                  //   key={msg.key}
-                  //   className={`bg-purple-800 p-4 ${msg.msgByBot ? 'rounded-r-3xl rounded-b-3xl' : 'rounded-l-3xl rounded-b-3xl'} font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
-                  // >{msg.text.text}
-                  // </p>
                 ))}
               </div>
 
@@ -104,7 +97,7 @@ const SymptomChecker = () => {
                 <input
                   onKeyDown={(e) => handleKeyDown(e)}
                   onChange={(e) => setInput(e.target.value)}
-                  className='px-4 w-full py-3 focus:outline-none rounded-lg border border-purple-800' type="text" />
+                  className='px-4 w-full py-3 focus:outline-none rounded-lg border border-indigo-800' type="text" />
               </div>
 
             </div>
