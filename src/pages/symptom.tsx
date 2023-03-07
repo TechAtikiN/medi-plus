@@ -66,49 +66,44 @@ const SymptomChecker = () => {
       </Head>
 
       <DashLayout>
-        <div className='m-6'>
-          <h2 className='text-3xl font-bold text-purple-800'>Symptom Checker</h2>
+        <div className='m-5'>
+          <h2 className='text-3xl font-bold text-violet-800'>Symptom Checker</h2>
 
           <div>
             <h2 className='text-xl my-3'>Enter your symptoms</h2>
 
-            <div className='bg-purple-50 mx-auto mt-4 flex flex-col h-[30rem] w-1/2 overflow-y-scroll'>
-              <p className='bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white'>
+            <div className=' mt-4 flex flex-col h-[30rem] w-full overflow-y-scroll'>
+              <p className='bg-violet-700 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-sm mr-10 mt-7 ml-4 text-white'>
                 Welcome to our site! If you need any help or check symptoms, we are online and ready to help you!
               </p>
-
-              <div className='flex-1 space-y-5'>
-                {messages?.map(msg => (
-                  msg.msgByBot ? (
-                    <p
-                      key={msg.key}
-                      className={`bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
-                    >{msg.text.text}
-                    </p>
-                  ) : (
-                    <p
-                      key={msg.key}
-                      className={`bg-purple-800 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
-                    >{msg.text}
-                    </p>
-                  )
-                  // <p
-                  //   key={msg.key}
-                  //   className={`bg-purple-800 p-4 ${msg.msgByBot ? 'rounded-r-3xl rounded-b-3xl' : 'rounded-l-3xl rounded-b-3xl'} font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
-                  // >{msg.text.text}
-                  // </p>
+              
+              <div className="h-64 md:h-96 overflow-y-scroll">
+              <div className="flex flex-col-reverse">
+                {messages.map((msg: any, index: number) => (
+                  <div
+                    key={index}
+                    className={`rounded-lg shadow-sm py-2 px-4 mb-2 ${msg.msgByBot ? 'ml-auto bg-violet-700 text-white' : 'mr-auto bg-gray-100'}`}
+                  >
+                    {msg.msgByBot ? msg.text.text : msg.text}
+                  </div>
                 ))}
-              </div>
 
-              <div className='fixed bottom-36 w-1/2'>
-                <input
-                  onKeyDown={(e) => handleKeyDown(e)}
-                  onChange={(e) => setInput(e.target.value)}
-                  className='px-4 w-full py-3 focus:outline-none rounded-lg border border-purple-800' type="text" />
-              </div>
+        
+            </div>
+            <div className="flex-none md:w-auto bottom-20 fixed w-full">
+              <input
+                onKeyDown={(e) => handleKeyDown(e)}
+                onChange={(e) => setInput(e.target.value)}
+                className="px-4 w-full py-3 focus:outline-none rounded-lg border border-purple-800" 
+                type="text" 
+                placeholder="Type here..." 
+              />
+            </div>
 
             </div>
+            
           </div>
+        </div>
         </div>
       </DashLayout>
     </div>
