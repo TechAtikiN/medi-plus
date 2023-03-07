@@ -1,6 +1,6 @@
-import Head from "next/head"
+import Head from 'next/head'
 import useState from 'react-usestateref'
-import { DashLayout } from "../layouts"
+import { DashLayout } from '../layouts'
 
 type Message = {
   key: number,
@@ -72,31 +72,43 @@ const SymptomChecker = () => {
           <div>
             <h2 className='text-xl my-3'>Enter your symptoms</h2>
 
-            <div className=' mt-4 flex flex-col h-[30rem] w-full overflow-y-scroll'>
+            <div className='mt-4 flex flex-col h-[30rem] w-full overflow-y-scroll'>
               <p className='bg-violet-700 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-sm mr-10 mt-7 ml-4 text-white'>
                 Welcome to our site! If you need any help or check symptoms, we are online and ready to help you!
               </p>
               
-              <div className="h-64 md:h-96 overflow-y-scroll">
-              <div className="flex flex-col-reverse">
-                {messages.map((msg: any, index: number) => (
-                  <div
-                    key={index}
-                    className={`rounded-lg shadow-sm py-2 px-4 mb-2 ${msg.msgByBot ? 'ml-auto bg-violet-700 text-white' : 'mr-auto bg-gray-100'}`}
-                  >
-                    {msg.msgByBot ? msg.text.text : msg.text}
-                  </div>
+              <div className='h-64 md:h-96 overflow-y-scroll'>
+              <div className='flex flex-col-reverse'>
+              {messages?.map(msg => (
+                  msg.msgByBot ? (
+                    <p
+                      key={msg.key}
+                      className={`bg-purple-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                    >{msg.text.text}
+                    </p>
+                  ) : (
+                    <p
+                      key={msg.key}
+                      className={`bg-gray-200 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-sm mr-10 mt-5 ml-4 text-black`}
+                    >{msg.text}
+                    </p>
+                  )
+                  // <p
+                  //   key={msg.key}
+                  //   className={`bg-purple-800 p-4 ${msg.msgByBot ? 'rounded-r-3xl rounded-b-3xl' : 'rounded-l-3xl rounded-b-3xl'} font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                  // >{msg.text.text}
+                  // </p>
                 ))}
 
         
             </div>
-            <div className="flex-none md:w-auto bottom-20 fixed w-full">
+            <div className='flex-none md:w-auto bottom-20 fixed w-full'>
               <input
                 onKeyDown={(e) => handleKeyDown(e)}
                 onChange={(e) => setInput(e.target.value)}
-                className="px-4 w-full py-3 focus:outline-none rounded-lg border border-purple-800" 
-                type="text" 
-                placeholder="Type here..." 
+                className='px-4 w-full py-3 focus:outline-none rounded-lg border border-purple-800' 
+                type='text' 
+                placeholder='Type here...' 
               />
             </div>
 
