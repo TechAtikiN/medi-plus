@@ -2,7 +2,7 @@ const BreastCancerForm = () => {
   return (
     <div>
       <form className='p-10' action=''>
-        <p className='text-center text-indigo-900 font-semibold text-4xl my-4'>Enter relevant data for Breast Cancer Prediction</p>
+        <p className='text-left text-indigo-900 font-semibold text-4xl my-4'>Enter relevant data for Breast Cancer Prediction</p>
         <div className='grid grid-cols-2 gap-x-10 gap-y-5'>
           <div className='space-y-2'>
             <div className='flex flex-col'>

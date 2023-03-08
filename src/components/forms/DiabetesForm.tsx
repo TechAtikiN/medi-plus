@@ -2,7 +2,7 @@ const DiabetesForm = () => {
   return (
     <div>
       <form className='p-10' action=''>
-        <p className='text-center text-indigo-900 font-semibold text-4xl my-4'>Enter relevant data for Diabetes Prediction</p>
+        <p className='text-left text-indigo-900 font-semibold text-4xl my-4'>Enter relevant data for Diabetes Prediction</p>
         <div className='grid grid-cols-2 gap-x-10 gap-y-5'>
           <div className='space-y-2'>
             <div className='flex flex-col'>
@@ -57,15 +57,10 @@ const DiabetesForm = () => {
               <input className='form-input' type="text" />
             </div>
 
-            <div className='flex flex-col'>
-              <label className='form-label' htmlFor="">Outlet Type</label>
-              <input className='form-input' type="text" />
-            </div>
-
           </div>
         </div>
 
-        <button className='bg-indigo-800 px-4 py-3 text-xl ml-60 text-white font-semibold rounded-lg mt-10 w-1/2'>
+        <button className='bg-indigo-800 px-4 py-3 text-xl text-white font-semibold rounded-lg mt-10 w-1/2'>
           Predict
         </button>
       </form>

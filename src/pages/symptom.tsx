@@ -64,13 +64,13 @@ const SymptomChecker = () => {
       </Head>
 
       <DashLayout>
-        <div className='m-6'>
+        <div className='m-6 bottom-0 right-0'>
           <h2 className='text-3xl font-bold text-indigo-800'>Symptom Checker</h2>
 
           <div>
             <h2 className='text-xl my-3'>Enter your symptoms</h2>
 
-            <div className='bg-indigo-50 mx-auto mt-4 flex flex-col h-[30rem] w-1/2 overflow-y-scroll'>
+            <div className='mx-auto mt-4 flex flex-col h-[30rem] w-1/2 overflow-y-scroll'>
               <p className='bg-indigo-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white'>
                 Welcome to our site! If you need any help or check symptoms, we are online and ready to help you!
               </p>
