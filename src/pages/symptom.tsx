@@ -1,6 +1,6 @@
-import Head from "next/head"
+import Head from 'next/head'
 import useState from 'react-usestateref'
-import { DashLayout } from "../layouts"
+import { DashLayout } from '../layouts'
 
 type Message = {
   key: number,
@@ -75,31 +75,34 @@ const SymptomChecker = () => {
                 Welcome to our site! If you need any help or check symptoms, we are online and ready to help you!
               </p>
 
-              <div className='flex-1 space-y-5'>
-                {messages?.map(msg => (
-                  msg.msgByBot ? (
-                    <p
-                      key={msg.key}
-                      className={`bg-indigo-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
-                    >{msg.text.text}
-                    </p>
-                  ) : (
-                    <p
-                      key={msg.key}
-                      className={`bg-indigo-800 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
-                    >{msg.text}
-                    </p>
-                  )
-                ))}
-              </div>
+              <div className='h-64 md:h-96 overflow-y-scroll'>
+                <div className='flex flex-col-reverse'>
+                  {messages?.map(msg => (
+                    msg.msgByBot ? (
+                      <p
+                        key={msg.key}
+                        className={`bg-indigo-800 p-4 rounded-r-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                      >{msg.text.text}
+                      </p>
+                    ) : (
+                      <p
+                        key={msg.key}
+                        className={`bg-indigo-800 p-4 rounded-l-3xl rounded-b-3xl font-semibold text-lg mr-10 mt-7 ml-4 text-white`}
+                      >{msg.text}
+                      </p>
+                    )
+                  ))}
 
-              <div className='fixed bottom-36 w-1/2'>
-                <input
-                  onKeyDown={(e) => handleKeyDown(e)}
-                  onChange={(e) => setInput(e.target.value)}
-                  className='px-4 w-full py-3 focus:outline-none rounded-lg border border-indigo-800' type="text" />
-              </div>
+                  <div className='fixed bottom-36 w-1/2'>
+                    <input
+                      onKeyDown={(e) => handleKeyDown(e)}
+                      onChange={(e) => setInput(e.target.value)}
+                      className='px-4 w-full py-3 focus:outline-none rounded-lg border border-indigo-800' type="text" />
+                  </div>
 
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
