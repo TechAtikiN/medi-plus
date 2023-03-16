@@ -50,7 +50,7 @@ const SideBar = () => {
 
   return (
     <>
-      <div className='sm:bg-indigo-700 sm:w-80 flex flex-col'>
+      <div className='sm:bg-indigo-700 sm:w-80 pr-6 flex flex-col'>
         <div className='flex mx-1'>
 
           <button onClick={toggleNavLinks} className='sm:hidden text-xl font-semibold'>
@@ -65,7 +65,7 @@ const SideBar = () => {
         <div className='hidden md:block overflow-y-auto mt-2 '>
           {navLinks.map((link) => (
             <div
-
+              onClick={() => setSelectedItem(link.title)}
               className={` hover:font-bold font-semibold flex space-x-3 px-3 py-2 cursor-pointer 
                        hover:bg-gray-100 hover:text-indigo-800  m-2
                        ${link.path === selectedItem ? 'text-indigo-700 bg-gray-100 ' : ''}
@@ -90,8 +90,8 @@ const SideBar = () => {
                   toggleNavLinks();
                 }}
                 className={`flex  space-x-3 px-3 py-2 cursor-pointer 
-              ${link.path === selectedItem ? 'bg-purple-800 text-white' : 'bg-slate-200'}
-              hover:bg-purple-800 hover:text-white m-2`}
+              ${link.path === selectedItem ? 'bg-indigo-800 text-white' : 'bg-slate-200'}
+              hover:bg-indigo-800 hover:text-white m-2`}
               >
                 <Link href={`/${link.path}`} className='text-sm text-left font-semibold'>
                   {link.title}

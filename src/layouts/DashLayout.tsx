@@ -14,6 +14,8 @@ const DashLayout = ({ children }: Props) => {
           {children}
         </main>
       </div>
+
+
     </div>
   );
 }
