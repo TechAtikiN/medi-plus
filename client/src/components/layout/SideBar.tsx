@@ -67,13 +67,13 @@ const SideBar = () => {
             <div
               onClick={() => setSelectedItem(link.title)}
               className={` hover:font-bold font-semibold flex space-x-3 px-3 py-2 cursor-pointer 
-                       hover:bg-gray-100 hover:text-indigo-800  m-2
-                       ${link.path === selectedItem ? 'text-indigo-700 bg-gray-100 ' : ''}
+                       hover:bg-gray-100 hover:text-indigo-800 text-gray-200 m-2
+                       ${link.path === selectedItem ? ' ' : ''}
                        `}
             >
               <Link href={`/${link.path}`} className='flex'>
-                <Bars3Icon className='h-6 w-6 text-gray-200 hover:text-indigo-700 mr-3' />
-                <p className={`text-sm hover:text-indigo-700 text-gray-200 text-left `}>{link.title}</p>
+                <Bars3Icon className='h-6 w-6 mr-3' />
+                <p className={`text-sm text-left `}>{link.title}</p>
               </Link>
             </div>
 
@@ -93,7 +93,7 @@ const SideBar = () => {
               ${link.path === selectedItem ? 'bg-indigo-800 text-white' : 'bg-slate-200'}
               hover:bg-indigo-800 hover:text-white m-2`}
               >
-                <Link href={`/${link.path}`} className='text-sm text-left font-semibold'>
+                <Link href={`${link.path}`} className='text-sm text-left font-semibold'>
                   {link.title}
                 </Link>
               </div>

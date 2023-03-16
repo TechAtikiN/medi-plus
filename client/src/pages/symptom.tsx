@@ -65,9 +65,6 @@ const SymptomChecker = () => {
 
       <DashLayout>
         <div className='grid md:grid-cols-2 grid-cols-1 h-screen'>
-          <div className='col-span-1 bg-indigo-100'>
-
-          </div>
 
           <div className='m-6 bottom-0 right-0 col-span-1'>
             <h2 className='text-3xl font-bold text-indigo-800'>Symptom Checker</h2>
@@ -108,6 +105,10 @@ const SymptomChecker = () => {
               </div>
             </div>
           </div>
+
+          <div className='col-span-1 bg-indigo-100'>
+          </div>
+
         </div>
       </DashLayout >
     </div >

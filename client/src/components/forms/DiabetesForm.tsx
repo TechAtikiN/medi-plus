@@ -1,6 +1,6 @@
 const DiabetesForm = () => {
   return (
-    <div>
+    <div className='flex'>
       <form className='p-10' action=''>
         <p className='text-left text-indigo-900 font-semibold text-4xl my-4'>Enter relevant data for Diabetes Prediction</p>
         <div className='md:grid md:grid-cols-2 grid-cols-1  gap-x-10 gap-y-5'>
@@ -64,6 +64,9 @@ const DiabetesForm = () => {
           Predict
         </button>
       </form>
+      <div className='bg-indigo-200'>
+        <h1 className='text-2xl font-semibold text-indigo-600 p-6'>Description of the input values</h1>
+      </div>
     </div>
   )
 }
