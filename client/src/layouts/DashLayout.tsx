@@ -10,7 +10,7 @@ const DashLayout = ({ children }: Props) => {
     <div className=''>
       <div className='min-h-screen sm:flex'>
         <SideBar />
-        <main className='min-w-screen'>
+        <main className='w-full'>
           {children}
         </main>
       </div>

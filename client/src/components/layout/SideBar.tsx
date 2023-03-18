@@ -42,6 +42,7 @@ const SideBar = () => {
     '/' + router.pathname.split('/')[0]
   );
 
+
   const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
 
   const toggleNavLinks = () => {
@@ -68,7 +69,7 @@ const SideBar = () => {
               onClick={() => setSelectedItem(link.title)}
               className={` hover:font-bold font-semibold flex space-x-3 px-3 py-2 cursor-pointer 
                        hover:bg-gray-100 hover:text-indigo-800 text-gray-200 m-2
-                       ${link.path === selectedItem ? ' ' : ''}
+                       ${link.path === selectedItem ? '' : ''}
                        `}
             >
               <Link href={`${link.path}`} className='flex'>

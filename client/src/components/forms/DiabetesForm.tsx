@@ -117,11 +117,11 @@ const DiabetesForm = () => {
           </div>
         </div>
 
-        <button type='submit' className='bg-indigo-800 px-4 py-3 text-xl text-white font-semibold rounded-lg mt-10 w-1/2'>
+        <button type='submit' className='bg-indigo-800 px-4 py-3 text-xl text-white font-semibold rounded-2xl mt-10 w-1/2'>
           Predict
         </button>
       </form>
-      <div className='bg-indigo-200'>
+      <div className=''>
         <h1 className='text-2xl font-semibold text-indigo-600 p-6'>Description of the input values</h1>
       </div>
     </div>
