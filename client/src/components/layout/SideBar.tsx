@@ -71,7 +71,7 @@ const SideBar = () => {
                        ${link.path === selectedItem ? ' ' : ''}
                        `}
             >
-              <Link href={`/${link.path}`} className='flex'>
+              <Link href={`${link.path}`} className='flex'>
                 <Bars3Icon className='h-6 w-6 mr-3' />
                 <p className={`text-sm text-left `}>{link.title}</p>
               </Link>
