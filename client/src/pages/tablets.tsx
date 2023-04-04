@@ -1,21 +1,12 @@
-import Head from 'next/head'
+import React from 'react'
 import { DashLayout } from '../layouts'
 
-const Tablets = () => {
+const tablets = () => {
   return (
-    <div className=''>
-      <Head>
-        <title>MediPlus | Dashboard</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
-      <DashLayout>
-        <div>
-          Tablets
-        </div>
-      </DashLayout>
-    </div>
+    <DashLayout>
+      
+    </DashLayout>
   )
 }
 
-export default Tablets
+export default tablets

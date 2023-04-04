@@ -2,12 +2,12 @@ import { Bars3Icon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 // {dasborad icon from heroicons}
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const navLinks: SidebarLink[] = [
   {
     title: 'Dashboard',
-    path: '/',
+    path: 'dashboard',
     icon: 'xyz',
   },
   {
@@ -16,7 +16,7 @@ const navLinks: SidebarLink[] = [
     icon: 'xyz',
   },
   {
-    title: 'Doctors near me',
+    title: 'Doctors Near Me',
     path: 'doctors',
     icon: 'xyz',
   },
@@ -38,11 +38,34 @@ const navLinks: SidebarLink[] = [
 ];
 const SideBar = () => {
   const router = useRouter();
-  const [selectedItem, setSelectedItem] = useState<string>(
-    '/' + router.pathname.split('/')[0]
-  );
+  const [selectedItem, setSelectedItem] = useState<string>('');
+  // const [selectedItem, setSelectedItem] = useState<string>(
+  //   '/' + router.pathname.split('/')[0]
+  // );
 
+  const handleItemClick = (link: SidebarLink) => {
+    setSelectedItem(link.title);
+    router.push(`/${link.path}`);
+  };
 
+  useEffect(() => {
+    const currentPath = router.pathname;
+    if (currentPath === '/doctors') {
+      setSelectedItem('Doctors Near Me');
+    } else if (currentPath === '/predict') {
+      setSelectedItem('Predict');
+    } else if (currentPath === '/tablets') {
+      setSelectedItem('Search Tablet');
+    } else if (currentPath === '/profile') {
+      setSelectedItem('Profile');
+    } else if (currentPath === '/symptom') {
+      setSelectedItem('Symptom Checker');
+    } else {
+      setSelectedItem('Dashboard');
+    }
+  }, [router.pathname]);
+
+  console.log(router.pathname);
   const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
 
   const toggleNavLinks = () => {
@@ -63,23 +86,23 @@ const SideBar = () => {
 
         </div>
 
-        <div className='hidden md:block overflow-y-auto mt-2 '>
-          {navLinks.map((link) => (
-            <div
-              onClick={() => setSelectedItem(link.title)}
-              className={` hover:font-bold font-semibold flex space-x-3 px-3 py-2 cursor-pointer 
-                       hover:bg-gray-100 hover:text-indigo-800 text-gray-200 m-2
-                       ${link.path === selectedItem ? '' : ''}
-                       `}
-            >
-              <Link href={`${link.path}`} className='flex'>
-                <Bars3Icon className='h-6 w-6 mr-3' />
-                <p className={`text-sm text-left `}>{link.title}</p>
-              </Link>
-            </div>
 
-          ))}
-        </div>
+   <div className='hidden md:block overflow-y-auto mt-2 '>
+  {navLinks.map((link) => (
+    <div
+      key={link.path}
+      className={`flex space-x-3 px-3 py-2 cursor-pointer 
+        ${selectedItem === link.title ? 'bg-gray-100 text-indigo-800' : 'text-white'}
+        hover:bg-white hover:text-indigo-800 m-2`}
+      onClick={() => handleItemClick(link)}
+    >
+      <p className='text-sm text-left font-semibold'>{link.title}</p>
+    </div>
+  ))}
+</div>
+
+
+
 
         {showNavLinks && (
           <div className='md:hidden overflow-y-auto transition-all max-h-full min-w-full duration-200 bg-slate-200 ease-in-out '>
