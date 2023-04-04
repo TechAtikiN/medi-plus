@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Modal from "../Modal";
 
 type HeartDiseaseFormData = {
   age: number;
@@ -17,9 +18,12 @@ type HeartDiseaseFormData = {
   glucose: number;
 };
 
+
+
 const HeartDiseaseForm = () => {
   const [ans, setAns] = useState("");
   const [result, setResult] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const {
     register,
@@ -41,11 +45,12 @@ const HeartDiseaseForm = () => {
       });
       const final = await response.json();
       if (final === 0) {
-        setResult("You are safe from Heart Disease");
+        setResult("You are safe from Heart Disease!");
       } else {
-        setResult("You are at risk of Heart Disease");
+        setResult("You are at risk of Heart Disease!");
       }
       setAns(final);
+      setShowModal(true);
     } catch (error) {
       console.error(error);
     }
@@ -235,6 +240,9 @@ const HeartDiseaseForm = () => {
         >
           Predict
         </button>
+        {result && 
+        <Modal setShowModal={setShowModal} showModal={showModal} 
+        text={result}/>}
         <p className="text-5xl">{result}</p>
       </form>
       <div className="sm:w-1/3 w-full ">

@@ -69,12 +69,12 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
         <hr className="mt-2" />
         <div className="mt-2">
           <h2 className="text-lg font-medium text-gray-800 flex justify-center align-middle items-center">
-            <FaGraduationCap className='text-indigo-800 text-center mr-3' /><span >{degree}</span>
+            <FaGraduationCap className='text-indigo-800 text-center mr-3' /><span >{degree.substring(0,30)}...</span>
         </h2>
           {/* <p className="text-gray-700">{description.substring(0, 50)}</p> */}
         </div>
-        <div className='m-5 '>
-        <Link href={profileLink} className='bg-indigo-800 hover:bg-indigo-700 w-full text-white rounded-sm font-semibold p-3'>
+        <div className='m-5 min-w-full '>
+        <Link href={profileLink} className='bg-indigo-800 hover:bg-indigo-700  text-white rounded-sm font-semibold p-3'>
             Book Apointment
         </Link>
         </div>

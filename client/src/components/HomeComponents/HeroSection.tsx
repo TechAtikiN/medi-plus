@@ -3,7 +3,7 @@ import heroImage from '../../assets/heroImg.png';
 
 const HeroSection = () => {
   return (
-    <div className="m-10  rounded-xl flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-purple-600 to-purple-800 py-16 px-4 md:px-8 lg:px-16">
+    <div className="m-10  rounded-xl flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-indigo-600 to-indigo-800 py-16 px-4 md:px-8 lg:px-16">
       <div className="md:w-1/2">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
           Live a healthy life with MediPlus

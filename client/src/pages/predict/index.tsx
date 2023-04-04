@@ -2,10 +2,19 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { BreastCancerForm, DiabetesForm, HeartDiseaseForm } from '../../components'
 import { DashLayout } from '../../layouts'
+import { parseCookies } from 'nookies';
+import { doctors } from '../../data/doc_data'
+
+
 
 const Predict = () => {
+  const cookies = parseCookies();
+  const city = cookies.city;
+  const location = cookies.location;
 
-  const [disease, setDisease] = useState('Diabetes')
+  console.log(city, location);
+
+  const [disease, setDisease] = useState('Heart Disease')
 
   return (
     <div className='bg-indigo-100'>

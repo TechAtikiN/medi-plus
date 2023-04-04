@@ -5,6 +5,8 @@ import {doctors } from '../data/doc_data.js'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import DoctorCard from '../components/Doctor/DoctorCard'
+import { setCookie } from 'nookies';
+
 
 // 84bfa3ccab621c862d452474c9348176
 
@@ -32,7 +34,17 @@ const Doctors = () => {
         const location = results[0].formatted;
 
         setCityAndLocation({ city, location });
+        setCookie(null, 'city', city, {
+          maxAge: 30 * 24 * 60 * 60, // expires in 30 days
+          path: '/',
+        });
+        
+        setCookie(null, 'location', location, {
+          maxAge: 30 * 24 * 60 * 60, // expires in 30 days
+          path: '/',
+        });
         console.log(cityAndLocation)
+
 
       } catch (error) {
         console.error(error);
@@ -121,7 +133,6 @@ const Doctors = () => {
               time={doctor.Time}
               consultationFee={doctor.consultation_fee}
               npv={doctor.npv}
-              link={doctor.Link}
             />
           ))}
               
