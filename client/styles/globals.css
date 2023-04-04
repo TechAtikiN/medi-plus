@@ -14,4 +14,10 @@
   .form-label{
     @apply font-semibold text-indigo-800 text-lg my-1
   }
+  .home-label{
+    @apply font-bold text-gray-400
+  }
+  .home-value{
+    @apply font-bold
+  }
 }

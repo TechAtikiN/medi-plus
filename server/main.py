@@ -17,7 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 class model_input(BaseModel):
     meanRadius: float
     meanTexture: float
@@ -54,7 +53,6 @@ class model_input(BaseModel):
 # loading the saved model
 breast_cancer_data = pickle.load(open("breast_cancer_data.sav", "rb"))
 
-
 @app.post("/breast-cancer")
 def breast_cancer_pred(input_parameters: model_input):
     input_data = input_parameters.json()
@@ -90,7 +88,6 @@ def breast_cancer_pred(input_parameters: model_input):
     worstConcavePoints = input_dictionary["worstConcavePoints"]
     worstSymmetry = input_dictionary["worstSymmetry"]
     worstFractalDimension = input_dictionary["worstFractalDimension"]
-
 
     input_list = (
         meanRadius,

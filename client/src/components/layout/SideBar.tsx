@@ -26,8 +26,8 @@ const navLinks: SidebarLink[] = [
     icon: 'xyz',
   },
   {
-    title: 'Profile',
-    path: 'profile',
+    title: 'Chatbot',
+    path: 'chatbot',
     icon: 'xyz',
   },
   {
@@ -63,8 +63,9 @@ const SideBar = () => {
         </div>
 
         <div className='hidden md:block overflow-y-auto mt-2 '>
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <div
+              key={index}
               onClick={() => setSelectedItem(link.title)}
               className={` hover:font-bold font-semibold flex space-x-3 px-3 py-2 cursor-pointer 
                        hover:bg-gray-100 hover:text-indigo-800 text-gray-200 m-2
