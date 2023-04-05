@@ -33,11 +33,15 @@ const Tablets = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
+      {selectedMed && (
+        <div className='bg-gray-900 opacity-80 z-50 w-full h-full fixed top-0 left-0' />
+      )}
+
       <DashLayout>
         <div className='bg-indigo-50 h-screen'>
           <Image className='h-60 object-cover opacity-80' alt='medicines' height={600} width={1300} layout='cover' src='https://img.freepik.com/premium-photo/medicine-background-different-color-pills-tablets-blue-background-drugs-medicines-supplements-vitamins-copy-space_256259-3710.jpg?w=1380' />
           {selectedMed && (
-            <div className='absolute space-y-4 p-4 z-50 text-center bg-indigo-400 text-white flex flex-col h-3/5 w-1/2 top-40 right-60'>
+            <div className='absolute space-y-4 p-4 z-50 text-center bg-indigo-400 text-white flex flex-col h-3/5 w-1/2 top-40 right-80'>
               <p className='text-xl font-bold '>{selectedMed.name}</p>
               <p className=''>{selectedMed.desc.slice(0, 250)}...</p>
               <p><span className='font-bold mx-2 text-indigo-900 text-lg'>Uses:</span> {selectedMed.uses}</p>
@@ -59,7 +63,7 @@ const Tablets = () => {
             Showing total medicines: <span className='font-semibold'>{items.filter(item => item.name.toLowerCase().includes(inputMed.toLowerCase())).length}</span>
           </p>
 
-          <div className='rounded-3xl overflow-y-auto h-[32rem] mt-6 space-y-4 mx-20 text-gray-600 border-b-4 border-rose-200 py-10'>
+          <div className='rounded-3xl overflow-y-auto h-[20rem] mt-6 space-y-4 mx-20 text-gray-600 border-b-4 border-rose-200 py-10'>
             {items?.map((item, index) => {
               if (item.name.toLowerCase().includes(inputMed.toLowerCase())) {
                 return (
@@ -81,33 +85,3 @@ const Tablets = () => {
 }
 
 export default Tablets
-
-// const medicinesDetails = medicines
-
-  // const names = Object.values(medicinesDetails.Name)
-  // const description = Object.values(medicinesDetails.Desc)
-  // const quickTips = Object.values(medicinesDetails.Quick_Tips)
-  // const sideEffects = Object.values(medicinesDetails.Side_Effects)
-  // const uses = Object.values(medicinesDetails.Uses)
-
-  // const medicinesData: any = []
-
-  // const addMed = (item: string) => {
-  //   let medicine = {
-  //     desc: '',
-  //     name: item,
-  //     quickTips: '',
-  //     sideEffects: '',
-  //     uses: ''
-  //   }
-  //   description.map(item => medicine.desc = item)
-  //   quickTips.map(item => medicine.quickTips = item)
-  //   sideEffects.map(item => medicine.sideEffects = item)
-  //   uses.map(item => medicine.uses = item)
-  //   console.log(medicine)
-  //   // medicinesData.push(medicine)
-  // }
-
-  // names.forEach(item => addMed(item))
-
-  // console.log(medicinesData)

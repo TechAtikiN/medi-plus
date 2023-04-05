@@ -46,13 +46,13 @@ const appoitnmentDetails = [
 const MainSection = () => {
 
   return (
-    <div className='flex flex-col text-gray-600'>
+    <div className='flex flex-col text-gray-600 min-h-screen'>
       <div className='flex space-x-4 my-5'>
         <UserCircleIcon className='h-9 w-9' />
         <p className='text-2xl font-semibold'>{patientDetails.name}</p>
       </div>
 
-      <div className='flex bg-white rounded-lg w-1/2 p-3 space-x-6'>
+      <div className='flex bg-white rounded-lg w-4/5 p-3 space-x-6'>
         <div className='p-7 rounded-full bg-gray-300' />
         <div>
           <p className='text-xl font-bold'>Smith Adams</p>
@@ -60,7 +60,7 @@ const MainSection = () => {
         </div>
       </div>
 
-      <div className='grid grid-cols-4 gap-x-8 gap-y-8 bg-white rounded-lg w-1/2 p-3 my-5'>
+      <div className='grid grid-cols-4 gap-x-8 gap-y-8 bg-white rounded-lg w-4/5 p-3 my-5'>
         <div className='flex flex-col space-y-2'>
           <p className='home-label'>Date of Birth</p>
           <p className='home-value'>{patientDetails.dob}</p>
@@ -95,7 +95,7 @@ const MainSection = () => {
         </div>
       </div>
 
-      <div className='bg-white rounded-lg w-1/2 p-3 my-5'>
+      <div className='bg-white rounded-lg w-4/5 p-3 my-5'>
         <button className='px-3 py-2 w-80 font-bold mx-auto text-xl rounded-full'>Upcoming Appointments</button>
 
         <table className='text-gray-500 flex flex-col p-2 h-[20rem]'>

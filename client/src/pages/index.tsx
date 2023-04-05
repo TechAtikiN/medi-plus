@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { MainSection, SideBar, SideSection } from '../components'
+import { MainSection } from '../components'
 import { DashLayout } from '../layouts'
 
 const Home: NextPage = () => {
@@ -17,9 +17,6 @@ const Home: NextPage = () => {
             <div className=''>
               <MainSection />
             </div>
-            {/* <div className=''>
-              <SideSection />
-            </div> */}
           </div>
         </div>
       </DashLayout>
