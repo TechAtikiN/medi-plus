@@ -8,6 +8,7 @@ import CardRow from '../components/HomeComponents/CardRow'
 import CircleCard from '../components/HomeComponents/CircleCard'
 import CircleCardRow from '../components/HomeComponents/CircleCardRow'
 import Features from '../components/HomeComponents/Features'
+import Footer from '../components/Footer/Footer'
 
 
 const Home: NextPage = () => {
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
       <CardRow />
       <CircleCardRow />
       <Features />
+      <Footer />
     </div>
   )
 }

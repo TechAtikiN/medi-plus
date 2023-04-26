@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import sadFace from '../assets/sad_face.png';
 import happyFace from '../assets/happy.png';
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 type ModalProps = {
     showModal: boolean;
@@ -11,9 +13,17 @@ type ModalProps = {
 
 export default function Modal({showModal, setShowModal, text} : ModalProps) {
 //   const [showModal, setShowModal] = useState(false);
+const [ find, setFind ] = useState(false)
 
 const [ desc, setDesc ] = useState("");
 const [ emoji, setEmoji ] = useState("");
+
+const router = useRouter()
+
+const handleFind = () => {
+  setShowModal(false)
+  // setFind(true)
+}
 
 useEffect(() => {
 if(text === 'You are safe from Heart Disease!') {
@@ -54,10 +64,7 @@ if(text === 'You are safe from Heart Disease!') {
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-900 text-4xl leading-relaxed font-medium flex items-center">
                     <span className="mr-4">{text}</span> {emoji === '😊' ? <Image src={happyFace} alt="Happy Face" width={50} height={20} /> : <Image src={sadFace} alt="Sad Face" width={50} height={20} />}
-                    {/* {text === 'You are safe from Heart Disease' ? 
-                    (<>{text}<Image src={happyFace} alt="Happy Face" width={50} height={20} /> </>) : 
-                    (<>{text}<Image src={sadFace} alt="Sad Face" width={50} height={20} /></>)
-                    } */}
+                   
                   </p>
                   <p className="text-md">
     
@@ -71,22 +78,25 @@ if(text === 'You are safe from Heart Disease!') {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => handleFind()}
                   >
                     Close
                   </button>
-                  {/* <button
+                  {text !== 'You are safe from Heart Disease!' && 
+                  (<button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    Save Changes
-                  </button> */}
+                    <Link href='/doctors'>Find Cardiologists near you</Link>
+                  </button>)
+                  }
                 </div>
               </div>
             </div>
           </div>
           <div className="opacity-40 fixed inset-0 z-40 bg-black"></div>
+          
         </>
       ) : null}
     </>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import heroImage from '../../assets/heroImg.png';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
@@ -13,9 +14,11 @@ const HeroSection = () => {
           hospitals in your area. It also helps you to predict your disease and
           find the best treatment for it.
         </p>
+        <Link href='/predict'>
         <button className="bg-white hover:bg-gray-200 text-purple-800 font-bold px-12 py-3 rounded-md">
           Get Started
         </button>
+        </Link>
       </div>
       <div className="md:w-1/2 mt-10 sm:ml-16 md:mt-0">
         <Image
